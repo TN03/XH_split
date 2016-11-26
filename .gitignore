@@ -45,3 +45,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#XH files
+source/core/css/plugins.css/plugins
+source/cmsimple/log.txt
