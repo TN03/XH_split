@@ -833,7 +833,8 @@ function rfc()
     $s = -1;
 
     if ($cl == 0) {
-        $c[] = '<h1>' . $tx['toc']['newpage'] . '</h1>';
+        //$c[] = '<h1>' . $tx['toc']['newpage'] . '</h1>';
+        $c[] = '<!--XH_ml1:' . $tx['toc']['newpage'] . '-->'; //HI
         $h[] = trim(strip_tags($tx['toc']['newpage']));
         $u[] = uenc($h[0]);
         $l[] = 1;
@@ -883,7 +884,7 @@ function rfc()
  * Returns FALSE, if the file couldn't be read.
  *
  * @param string $language The language to read.
- *                         <var>null</var> means the default language.
+ * - <var>null</var> means the default language.
  *
  * @global array The paths of system files and folders.
  * @global array The configuration of the core.
@@ -922,19 +923,19 @@ function XH_readContents($language = null)
     if (($content = XH_readFile($contentFile)) === false) {
         return false;
     }
-    $stop = $cf['menu']['levels'];
-    $content = preg_split('/(?=<h[1-' . $stop . '])/i', $content);
+    //$stop = $cf['menu']['levels'];
+    //$content = preg_split('/(?=<h[1-' . $stop . '])/i', $content); //Core
+    $content = preg_split('/(?=<!--XH_ml[1-9]+:)/i', $content);
     $content[] = preg_replace('/(.*?)<\/body>.*/isu', '$1', array_pop($content));
     $contentHead = array_shift($content);
-
     $temp_h = array();
     foreach ($content as $page) {
         $c[] = $page;
-        preg_match('~<h([1-' . $stop . ']).*>(.*)</h~isU', $page, $temp);
+        //preg_match('~<h([1-' . $stop . ']).*>(.*)</h~isU', $page, $temp); //Core
+        preg_match('~<!--XH_ml([1-9]+):(.*)-->~isU', $page, $temp);
         $l[] = $temp[1];
         $temp_h[] = trim(xh_rmws(strip_tags($temp[2])));
     }
-
     /*
      * just a helper for the "url" construction:
      * will be filled like this [0] => "Page"
@@ -999,7 +1000,10 @@ function XH_readContents($language = null)
             }
         }
     }
-
+    
+    //TODO: don't use $cf['menu']['levels'] anymore
+    $cf['menu']['levels'] = max($l);
+    
     return array(
         'urls' => $u,
         'too_long' => $tooLong,

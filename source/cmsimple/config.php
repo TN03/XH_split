@@ -1,12 +1,12 @@
 <?php
 
 $cf['security']['password']="\$P\$BHYRVbjeM5YAvnwX2AkXnyqjLhQAod1";
-$cf['security']['secret']="5b2b98208d4fc6ce9331e47d";
+$cf['security']['secret']="2ddea5d9f83749b76e089566";
 $cf['security']['email']="";
 $cf['security']['frame_options']="";
 $cf['site']['template']="mini1";
 $cf['site']['timezone']="";
-$cf['language']['default']="en";
+$cf['language']['default']="de";
 $cf['language']['2nd_lang_names']="cs=Čeština;da=Dansk;de=Deutsch;en=English;es=Español;fi=Suomi;fr=Français;gr=Ελληνικά;hu=Magyar;it=Italiano;nl=Nederlands;no=Norsk;pl=Polski;ru=Русский;se=Svensk;sk=Slovenčina";
 $cf['mailform']['email']="";
 $cf['mailform']['captcha']="true";
@@ -32,7 +32,7 @@ $cf['filebrowser']['external']="";
 $cf['pagemanager']['external']="";
 $cf['menu']['color']="000000";
 $cf['menu']['highlightcolor']="808080";
-$cf['menu']['levels']="3";
+$cf['menu']['levels']="4";
 $cf['menu']['levelcatch']="10";
 $cf['menu']['sdoc']="parent";
 $cf['menu']['legal']="CMSimple Legal Notices";
@@ -46,4 +46,8 @@ $cf['xhtml']['amp']="true";
 $cf['editmenu']['scroll']="";
 $cf['editmenu']['external']="";
 $cf['title']['format']="{SITE} &ndash; {PAGE}";
+$cf['headings']['show']="true";
+$cf['headings']['format']="<h1>%s</h1>";
+$cf['mode']['advanced']="";
+
 ?>

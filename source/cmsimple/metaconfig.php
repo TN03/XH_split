@@ -23,7 +23,7 @@ $mcf['filebrowser']['external']="xfunction:XH_registeredFilebrowserPlugins";
 $mcf['pagemanager']['external']="xfunction:XH_registeredPagemanagerPlugins";
 $mcf['menu']['color']="hidden";
 $mcf['menu']['highlightcolor']="hidden";
-$mcf['menu']['levels']="enum:1,2,3,4,5,6";
+$mcf['menu']['levels']="hidden";
 $mcf['menu']['levelcatch']="hidden";
 $mcf['menu']['legal']="hidden";
 $mcf['menu']['sdoc']="enum:,parent";
@@ -32,4 +32,6 @@ $mcf['xhtml']['endtags']="bool";
 $mcf['xhtml']['amp']="hidden";
 $mcf['editmenu']['scroll']="bool";
 $mcf['editmenu']['external']="xfunction:XH_registeredEditmenuPlugins";
+$mcf['headings']['show']="bool";
+$mcf['mode']['advanced']="bool";
 ?>

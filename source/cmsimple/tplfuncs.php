@@ -528,6 +528,7 @@ function editmenu()
  *
  * @return string (X)HTML.
  *
+ * @global array  The headings of the pages.
  * @global int    The index of the current page.
  * @global string The output of the contents area.
  * @global array  The content of the pages.
@@ -536,17 +537,31 @@ function editmenu()
  */
 function content()
 {
-    global $s, $o, $c, $edit,  $cf;
+    global $h, $s, $o, $c, $edit, $cf;
+    $heading = '';
 
+    if ($cf['headings']['show'] && $s > -1) {
+        if (preg_match('/<!--XH_ml[1-9]+:(.+)-->/isU', $c[$s], $matches)) {
+            $heading = $matches[1];
+        } 
+    }
     if (!($edit && XH_ADM) && $s > -1) {
         if (isset($_GET['search'])) {
             $search = XH_hsc(stsl($_GET['search']));
             $words = explode(' ', $search);
             $c[$s] = XH_highlightSearchWords($words, $c[$s]);
+            $heading = XH_highlightSearchWords($words, $heading);
         }
-        return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
+        //return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]); //HI
+        $o .= sprintf($cf['headings']['format'], $heading) 
+            . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
+        return  preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $o);
     } else {
-        return $o;
+        //return $o; //HI
+        if ($s > -1 && ($cf['headings']['show'] || ($edit && XH_ADM))) {
+            $o = sprintf($cf['headings']['format'], $h[$s]) . $o;
+        }
+        return  preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $o);
     }
 }
 
