@@ -364,8 +364,7 @@ function newsbox($heading)
 
     for ($i = 0; $i < $cl; $i++) {
         if ($h[$i] == $heading) {
-            $pattern = "/.*<\/h[1-".$cf['menu']['levels']."]>/is";
-            $body = preg_replace($pattern, "", $c[$i]);
+            $body = $c[$i];
             $pattern = '/#CMSimple (.*?)#/is';
             return $edit
                 ? $body
