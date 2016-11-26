@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Codeeditor_XH &ndash; Manual</title>
+<link rel="stylesheet" type="text/css" href="./stylesheet.css">
+</head>
+
+<body>
+<h1>Codeeditor_XH - a CMSimple_XH Plugin</h1>
+
+<img src="../codeeditor.png" style="float:left" alt="Sheet with Tags">
+<p>Codeeditor_XH provides a replacement for the simple textarea in CMSimple_XH's
+back-end to edit the template, the stylesheet and the plugin stylesheets.
+Furthermore it can be used to edit the content of the website.</p>
+<p>Instead of being a WYSIWYG or WYSIWYM editor, it allows to edit the source
+code directly, and offers syntax highlighting, line numbering, code indenting
+and folding, bracket matching, optional line wrapping, filebrowser integration
+and search and replace.</p>
+
+<ul id="nav" style="clear:both">
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#settings">Settings</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<div id="body">
+
+<p><strong>Please do read this documentation, <em>before</em> you encounter any
+problems!</strong></p>
+
+<h2 id="requirements">Requirements</h2>
+<p>Codeeditor_XH is a plugin for CMSimple_XH &ge; 1.6.
+It requires PHP &ge; 5.2.0.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="installation">Installation</h2>
+<p>The installation is done as with many other CMSimple_XH plugins. See the <a
+href="http://www.cmsimple-xh.org/wiki/doku.php/installation"> CMSimple_XH
+wiki</a> for further details.</p>
+<ol>
+<li>Backup the data on your server.</li>
+<li>Unzip the distribution on your computer.</li>
+<li>Upload the whole directory codeeditor/ to your server into CMSimple_XH's
+plugin directory.</li>
+<li>Set write permissions for the subdirectories config/, css/ and
+languages/.</li>
+<li>Switch to "Plugins"&rarr;"Codeeditor" in the back-end to check if
+all requirements are fulfilled.</li>
+</ol>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="settings">Settings</h2>
+<p>The plugin's configuration is done as with many other CMSimple_XH plugins in
+the website's back-end. Select Plugins &rarr; Codeeditor.</p>
+<p>You can change the default settings of Codeeditor_XH under "Config". Hints
+for the options will be displayed when hovering over the help icons with your
+mouse.</p>
+<p>Localization is done under "Language". You can translate the character
+strings to your own language if there is no appropriate language file available,
+or customize them according to your needs.</p>
+<p>The style of Codeeditor_XH can be customized under "Stylesheet".</p>
+<p>Further configuration can be done in plugins/codeeditor/inits/init.json.
+The options are explained in <a
+href="http://codemirror.net/4/doc/manual.html#config">CodeMirror's user
+manual</a>.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="usage">Usage</h2>
+<p>To enable Codeeditor_XH as content editor go to
+Settings &rarr; CMS &rarr; Editor &rarr; External and enter "codeeditor".</p>
+<p>The editor has no toolbar or context menu, but instead uses keyboard
+shortcuts, which can be configured in the init file. Some noteworthy ones:</p>
+<table>
+    <tr><th>Function</th><th>PC</th><th>Mac</th></tr>
+    <tr><td>save</td><td>Ctrl-S</td><td>Cmd-S</td></tr>
+    <tr><td>find</td><td>Ctrl-F</td><td>Cmd-F</td></tr>
+    <tr><td>find next</td><td>Ctrl-G</td><td>Cmd-G</td></tr>
+    <tr><td>find prev</td><td>Shift-Ctrl-G</td><td>Shift-Cmd-G</td></tr>
+    <tr><td>replace</td><td>Shift-Ctrl-F</td><td>Cmd-Alt-F</td></tr>
+    <tr><td>replace all</td><td>Shift-Ctrl-R</td><td>Shift-Cmd-Alt-F</td></tr>
+    <tr><td>toggle fullscreen</td><td>Esc</td><td>Esc</td></tr>
+    <tr><td>toggle folding</td><td>Ctrl-Q</td><td>Cmd-Q</td></tr>
+    <tr><td>toggle line wrapping</td><td>Alt-W</td><td>Alt-W</td></tr>
+    <tr><td>toggle preview</td><td>Crtl-P</td><td>Ctrl-P</td></tr>
+    <tr><td>browse images</td><td>Ctrl-I</td><td>Cmd-I</td></tr>
+    <tr><td>browse downloads</td><td>Ctrl-L</td><td>Cmd-L</td></tr>
+    <tr><td>browse media</td><td>Ctrl-M</td><td>Cmd-M</td></tr>
+    <tr><td>browse userfiles</td><td>Ctrl-U</td><td>Cmd-U</td></tr>
+</table>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="limitations">Limitations</h2>
+<p>The browse functions only support the standard filebrowser of CMSimple_XH.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="license">License</h2>
+<p>Codeeditor_XH is licensed under
+<a href="http://www.gnu.org/licenses/gpl.html">GPLv3</a>.</p>
+<p>&copy; 2011-2015 Christoph M. Becker</p>
+<p>Czech translation &copy; 2012 Josef Němec<br>
+Slovak translation &copy; 2012 Dr. Martin Sereday<br>
+Russian translation &copy; 2012 Lybomyr Kydray</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="credits">Credits</h2>
+<p>Codeeditor_XH is powered by <a href="http://codemirror.net/">CodeMirror</a>.
+Many thanks to Marijn Haverbeke for developing this great piece of software and
+releasing it under MIT license.</p>
+<p>The plugin icon was taken from the <a
+href="http://www.oxygen-icons.org/">Oxygen icon set</a>. Many thanks for
+offering these icons under GPL.</p>
+<p>This plugin uses free applications icons from <a
+href="http://www.aha-soft.com/">Aha-Soft</a>. Many thanks for making these icons
+freely available.</p>
+<p>Many thanks to the community at the <a
+href="http://www.cmsimpleforum.com/">CMSimple forum</a> for tips, suggestions
+and testing.</p>
+<p>And last but not least many thanks to <a href="http://www.harteg.dk/">Peter
+Harteg</a>, the "father" of CMSimple, and all developers of <a
+href="http://www.cmsimple-xh.org/">CMSimple_XH</a> without whom this amazing CMS
+wouldn't exist.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+</div>
+
+</body>
+
+</html>

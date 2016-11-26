@@ -1,0 +1,19 @@
+.CodeMirror {
+  border: 1px solid #999;
+}
+
+.CodeMirror-fullscreen {
+  z-index: 9999 !important;
+  border: 0;
+}
+
+/*
+ * The preview.
+ */
+.codeeditor_preview {
+    margin: 1em 0;
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+    border-radius: 1em;
+    padding: 1em 0;
+}

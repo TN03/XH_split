@@ -1,0 +1,250 @@
+<html><head><title>Content-Datei</title>
+<?php
+$page_data_fields=array('url','last_edit','description','keywords','title','robots','heading','show_heading','template','published','publication_date','expires','show_last_edit','linked_to_menu','header_location','use_header_location');
+$temp_data=array(
+'url'=>'Test',
+'last_edit'=>'1480013430',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+</head><body>
+<!--XH_ml1:Vor Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Vor-Seite-1',
+'last_edit'=>'1480029766',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>hkhjskhdkjasdh</p>
+<p>Vor Seite 1</p>
+<p> </p>
+<!--XH_ml1:Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-1',
+'last_edit'=>'1479945190',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'Überschrift aus PD',
+'show_heading'=>'1',
+'template'=>'0',
+'published'=>'1',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'0',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>'0'
+);
+?>
+<p>Text auf Seite 1</p>
+<p>ok, klappt :) - nich :( ...</p>
+<p>Ja, jetzt aber!</p>
+<!--XH_ml2:Seite 1.1-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-1.1',
+'last_edit'=>'1479767790',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<!--XH_ml3:Seite 1.1.1-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-1.1.1',
+'last_edit'=>'1480013333',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>von Seite 2</p>
+<p>ghghghghghgh</p>
+<p>von Seite 2</p>
+<!--XH_ml4:Seite 1.1.1.1-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-1.1.1.1',
+'last_edit'=>'1480013333',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<!--XH_ml1:Seite 2 XYZ-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-2-XYZ',
+'last_edit'=>'1479942390',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>222qqaaqaqaaqaqccccccccc</p>
+<p>Ich war mal auf Seite 3</p>
+<p>sasasasa</p>
+<p>sasasasa</p>
+<p>abcdefg</p>
+<!--XH_ml1:Seite 3-->
+<?php
+$page_data[]=array(
+'url'=>'Seite-3',
+'last_edit'=>'1480028920',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Tralala auf Seite 3</p>
+<p>dsasddd</p>
+<!--XH_ml1:Wie es funktioniert-->
+<?php
+$page_data[]=array(
+'url'=>'Wie-es-funktioniert',
+'last_edit'=>'1480026587',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<div>Die content.htm wird nicht mehr anhand der Seitenüberschrift, sondern mittels einem <br>"Split-Marker" (HTML-Kommentar) gesplittet.</div>
+<p>Hier in der 2. Version sind im eigentlichen Seiteninhalt die Überschriften überhaupt nicht mehr enthalten. Die Überschriften werden im "Split-Marker" zusammen mit dem Menülevel der Seite gespeichert:</p>
+<blockquote>
+<p>&lt;!--XH_ml<strong><span style="color: #ff0000;">X</span></strong>:<em>Meine Überschrift</em>--&gt;</p>
+</blockquote>
+<p>wobei <span style="color: #ff0000;"><strong>X</strong></span> für den Menülevel steht. Die darauf folgende Überschrift wird mit einem Doppelpunkt separiert.</p>
+<p>Bei der Ausgabe der Seite <em>kann</em> die Überschrift oberhalb des Seiteninhalts ausgegeben werden (konfigurierbar: <em>Einstelleungen -&gt; CMS -&gt; Headings -&gt; Show</em>).<br>Im Edit-Modus wird die Überschrift, zur besseren Orientierung, immer angezeigt.<br>Um die Seitenüberschrift einem &lt;hx&gt; - Tag zuzuordnen, ist eine weitere Konfigurationsoption enthalten: <em>Einstelleungen -&gt; CMS -&gt; Headings -&gt; Format</em>.<br>Um jede Seite mit einer &lt;h1&gt; - Überschrift zu beginnen, setzt man hier den entsprechenden Code ein:</p>
+<blockquote>
+<p>&lt;h1&gt;%s&lt;/h1&gt;</p>
+</blockquote>
+<p>wobei "xs" dem Text der Überschrift entspricht und nicht änderbar ist.</p>
+<p>Schaltet man die Ausgabe der Überschriften ab, werden die Texte lediglich für das Navigationsmenü verwendet. Den Inhalt kann man dann mit einer beliebigen Überschrift beliebigen Grades beginnen.</p>
+<p>Außerdem ist der <a href="http://cmsimpleforum.com/viewtopic.php?f=16&amp;t=11966&amp;start=30#p55555" target="_blank">von Christoph vorgeschlagene "NOPE" - Modus</a> integriert. Deaktiviert man in der Konfiguration ganz unten den "Advanced-Mode", werden alle Split-Marker aus dem Editor herausgefiltert und beim Speichern der Seiten automatisch wieder hinzugefügt. In dem Modus kann der User per Editor keine Seiten anlegen oder löschen, bzw. Inhalte verschieben. Hierzu muss der, hoffentlich bald angepasste, PageManager zur Hilfe genommen werden. <br>Im "Advanced-Mode" hat der User im HTML-Mode vollständigen Zugriff auf die Split-Marker. Die Möglichkeiten entsprechen so dem Original.</p>
+<h2>Technisches</h2>
+<p><strong>Die Anzahl der Menüebenen</strong> lässt sich nicht mehr in der Konfiguration einstellen. Die zuständige Variable ist als versteckt markiert und wird zur Laufzeit, entsprechend der maximal benutzten Ebenen im Inhalt, dynamisch gesetzt. Es gibt also zunächst keine Einschränkung für die Anzahl der Menüebenen. Aus Gründen der Rückwärtskompatibilität kann die Variable aber derzeit nicht entfallen. </p>
+<p>Über <strong>PageParams</strong> geänderte Überschriften werden unterstützt.</p>
+<p><strong>Suchfunktion:</strong> da der Text der Überschriften nicht mehr im eigentlichen Inhalt steht, wird er im Fall einer Suchanfrage temporär wieder dem Inhalt hinzugefügt. <br>Hierbei fiel auf, dass XH Änderungen der Überschriften per PD nicht bei der Suche berücksichtigt. Bug?<br>In dieser Demo ist das auch so, könnte aber angepasst werden.</p>
+<p>
+<!--XH_ml1:Download-->
+<?php
+$page_data[]=array(
+'url'=>'Download',
+'last_edit'=>'1480026665',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+</p>
+<p> </p>
+<p style="text-align: center;"><a href="./?download=XH_split_demo2_2016-11-24-001.zip"><strong>XH_split_demo2_2016-11-24-001</strong></a></p>
+</body></html>

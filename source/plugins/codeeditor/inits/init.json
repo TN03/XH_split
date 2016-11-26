@@ -1,0 +1,31 @@
+{
+    "indentUnit": 4,
+    "tabSize": 8,
+    "indentWithTabs": true,
+    "tabMode": "shift",
+    "electricChars": true,
+    "extraKeys": {
+        "Esc": "toggleFullscreen",
+        "Ctrl-Q": "toggleFolding",
+        "Alt-W": "toogleLineWrapping",
+        "Ctrl-P": "togglePreview",
+        "Cmd-P": "togglePreview",
+        "Ctrl-I": "browseImages",
+        "Cmd-I": "browseImages",
+        "Ctrl-L": "browseDownloads",
+        "Cmd-L": "browseDownloads",
+        "Ctrl-M": "browseMedia",
+        "Cmd-M": "browseMedia",
+        "Ctrl-U": "browseUserfiles",
+        "Cmd-U": "browseUserfiles"
+    },
+    "lineWrapping": true,
+    "lineNumbers": true,
+    "firstLineNumber": 1,
+    "matchBrackets": true,
+    "workTime": 200,
+    "workDelay": 300,
+    "undoDepth": 40,
+    "autoCloseTags": true,
+    "matchTags": true
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Codeeditor_XH &ndash; Handbuch</title>
+<link rel="stylesheet" type="text/css" href="./stylesheet.css">
+</head>
+
+<body>
+<h1>Codeeditor_XH - ein CMSimple_XH Plugin</h1>
+
+<img src="../codeeditor.png" style="float:left" alt="Blatt mit Tags">
+<p>Codeeditor_XH bietet einen Ersatz für die einfachen Textareas in CMSimple_XHs
+Administrationsmodus, um das Template, das Stylesheet und die Stylesheets der
+Plugins zu bearbeiten. Des weiteren kann es als Inhalts-Editor der Website
+verwendet werden.</p>
+<p>Codeeditor_XH ist kein WYSIWYG oder WYSIWYM Editor, sondern es erlaubt den
+Quellcode direkt zu bearbeiten, und bietet Syntaxhighlighting,
+Zeilennummerierung, Code-Einrückung und -Faltung, Anzeige zusammengehöriger
+Klammernpaare, optionales Zeilenumbrechen, Filebrowser-Integration und Suchen
+und Ersetzen.</p>
+
+<ul id="nav" style="clear:both">
+<li><a href="#requirements">Voraussetzungen</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#settings">Einstellungen</a></li>
+<li><a href="#usage">Verwendung</a></li>
+<li><a href="#limitations">Einschränkungen</a></li>
+<li><a href="#license">Lizenz</a></li>
+<li><a href="#credits">Danksagung</a></li>
+</ul>
+
+<div id="body">
+
+<p><strong>Bitte lesen Sie diese Dokumentation <em>bevor</em> Sie auf Probleme
+stoßen!</strong></p>
+
+<h2 id="requirements">Voraussetzungen</h2>
+<p>Codeeditor_XH ist ein Plugin für CMSimple_XH &ge; 1.6.
+Es benötigt PHP &ge; 5.2.0.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="installation">Installation</h2>
+<p>Die Installation erfolgt wie bei vielen anderen CMSimple_XH-Plugins auch. Im
+<a href="http://www.cmsimple-xh.org/wiki/doku.php/de:installation">
+CMSimple_XH-Wiki</a> finden Sie weitere Details.</p>
+<ol>
+<li>Sichern Sie die Daten auf Ihrem Server.</li>
+<li>Entpacken Sie die ZIP-Datei auf Ihrem Rechner.</li>
+<li>Laden Sie das ganze Verzeichnis codeeditor/ auf Ihren Server in CMSimple_XHs
+Plugin-Verzeichnis hoch.</li>
+<li>Machen Sie die Unterverzeichnisse config/, css/ und languages/
+beschreibbar.</li>
+<li>Gehen Sie zu "Plugins"&rarr;"Codeeditor" im Administrationsbereich,
+um zu prüfen, ob alle Voraussetzungen erfüllt sind.</li>
+</ol>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="settings">Einstellungen</h2>
+<p>Die Plugin-Konfiguration erfolgt wie bei vielen anderen CMSimple_XH-Plugins
+auch im Administrationsbereich der Website. Wählen Sie
+Plugins &rarr; Codeeditor.</p>
+<p>Sie können die Voreinstellungen von Codeeditor_XH unter "Konfiguration"
+ändern. Hinweise zu den Optionen werden beim Überfahren der Hilfe-Icons mit der
+Maus angezeigt.</p>
+<p>Die Lokalisierung wird unter "Sprache" vorgenommen. Sie können die
+Sprachtexte in Ihre eigene Sprache übersetzen,
+falls keine entsprechende Sprachdatei zur Verfügung steht,
+oder diese Ihren Wünschen gemäß anpassen.</p>
+<p>Das Aussehen von Codeeditor_XH kann unter "Stylesheet" angepasst werden.</p>
+<p>Weitere Einstellungen können in plugins/codeeditor/inits/init.json
+vorgenommen werden. Die Optionen werden in <a
+href="http://codemirror.net/4/doc/manual.html#config">CodeMirrors
+Benutzerhandbuch</a> erklärt.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+
+<h2 id="usage">Verwendung</h2>
+<p>Um Codeeditor_XH als Inhalts-Editor zu verwenden,
+tragen Sie unter Einstellungen &rarr; CMS &rarr; Editor &rarr; External
+"codeeditor" ein.</p>
+<p>Der Editor hat weder eine Werkzeugleiste noch ein Kontextmenü, sondern wird
+mit Tastenkürzeln bedient, die in der init Datei konfiguriert werden können.
+Einige erwähnenswerte:</p>
+<table>
+    <tr><th>Funktion</th><th>PC</th><th>Mac</th></tr>
+    <tr><td>Speichern</td><td>Ctrl-S</td><td>Cmd-S</td></tr>
+    <tr><td>Suchen</td><td>Ctrl-F</td><td>Cmd-F</td></tr>
+    <tr><td>Weitersuchen</td><td>Ctrl-G</td><td>Cmd-G</td></tr>
+    <tr><td>Rückwärts suchen</td><td>Shift-Ctrl-G</td><td>Shift-Cmd-G</td></tr>
+    <tr><td>Ersetzen</td><td>Shift-Ctrl-F</td><td>Cmd-Alt-F</td></tr>
+    <tr><td>Alle ersetzen</td><td>Shift-Ctrl-R</td><td>Shift-Cmd-Alt-F</td></tr>
+    <tr><td>Vollbild umschalten</td><td>Esc</td><td>Esc</td></tr>
+    <tr><td>Faltung umschalten</td><td>Ctrl-Q</td><td>Cmd-Q</td></tr>
+    <tr><td>Zeilenumbrechen umschalten</td><td>Alt-W</td><td>Alt-W</td></tr>
+    <tr><td>Vorschau umschalten</td><td>Crtl-P</td><td>Ctrl-P</td></tr>
+    <tr><td>Bilder durchsuchen</td><td>Ctrl-I</td><td>Cmd-I</td></tr>
+    <tr><td>Downloads durchsuchen</td><td>Ctrl-L</td><td>Cmd-L</td></tr>
+    <tr><td>Mediadateien durchsuchen</td><td>Ctrl-M</td><td>Cmd-M</td></tr>
+    <tr><td>Benutzerdateien durchsuchen</td><td>Ctrl-U</td><td>Cmd-U</td></tr>
+</table>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="limitations">Einschränkungen</h2>
+<p>Die Filebrowser-Funktionalität wird nur vom Standard-Filebrowser von
+CMSimple_XH unterstützt.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="license">Lizenz</h2>
+<p>Codeeditor_XH kann unter Einhaltung der <a
+href="http://www.gnu.org/licenses/gpl.html">GPLv3</a> verwendet werden.</p>
+<p>&copy; 2011-2015 Christoph M. Becker</p>
+<p>Tschechische Übersetzung &copy; 2012 Josef Němec<br>
+Slovakische Übersetzung &copy; 2012 Dr. Martin Sereday<br>
+Russische Übersetzung &copy; 2012 Lybomyr Kydray</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="credits">Danksagung</h2>
+<p>Codeeditor_XH verwendet <a href="http://codemirror.net/">CodeMirror</a>.
+Vielen Dank an Marijn Haverbeke für das Entwickeln dieser großartigen Software
+und für das Veröffentlichen unter MIT-Lizenz.</p>
+<p>Das Plugin-Icon stammt aus dem <a
+href="http://www.oxygen-icons.org/">Oxygen Icon-Set</a>. Vielen Dank für das Anbieten dieser Icons unter GPL.</p>
+<p>Dieses Plugin verwendet freie Anwendungs-Icons von <a
+href="http://www.aha-soft.com/">Aha-Soft</a>. Vielen Dank für die freie
+Nutzbarkeit dieser Icons.</p>
+<p>Vielen Dank an die Community im <a
+href="http://www.cmsimpleforum.com">CMSimple_XH forum</a> für Hinweise,
+Anregungen und das Testen.</p>
+<p>Und zu guter letzt vielen Dank an <a href="http://www.harteg.dk/">Peter
+Harteg</a>, den "Vater" von CMSimple, und allen Entwicklern von <a
+href="http://www.cmsimple-xh.org/de/">CMSimple_XH</a> ohne die es dieses
+phantastische CMS nicht gäbe.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+</div>
+
+</body>
+
+</html>
