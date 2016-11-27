@@ -257,8 +257,7 @@ class Pagemanager_XMLParser
             }
             $this->newContents[] = $content;
         } else {
-            $this->newContents[] = '<h' . $this->level . '>' . $this->title
-                . '</h' . $this->level . '>';
+            $this->newContents[] = "<!--XH_ml{$this->level}:{$this->title}-->";
         }
         if (isset($this->id)) {
             $pageData = $pd_router->find_page($this->id);
