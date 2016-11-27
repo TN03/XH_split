@@ -250,12 +250,9 @@ class Pagemanager_XMLParser
         if (isset($this->contents[$this->id])) {
             $content = $this->contents[$this->id];
             if ($this->mayRename) {
-                $pattern = '/<h[1-' . $this->levels . ']([^>]*)>'
-                    . '((<[^>]*>)*)[^<]*((<[^>]*>)*)'
-                    . '<\/h[1-' . $this->levels . ']([^>]*)>/i';
-                $replacement = '<h' . $this->level . '$1>${2}'
-                    . addcslashes($this->title, '$\\') . '$4'
-                    . '</h' . $this->level . '$6>';
+                $pattern = "/<!--XH_ml[0-9]:.*?-->/";
+                $replacement = "<!--XH_ml{$this->level}:" 
+                    . addcslashes($this->title, '$\\') . '-->';
                 $content = preg_replace($pattern, $replacement, $content, 1);
             }
             $this->newContents[] = $content;

@@ -94,20 +94,19 @@ class Pagemanager_Model
      */
     function getHeadings()
     {
-        global $c, $cf, $tx;
+        global $c, $h, $cf, $tx;
 
         $stop = $cf['menu']['levels'];
         $empty = 0;
         foreach ($c as $i => $page) {
-            preg_match('~<h([1-' . $stop . ']).*?>(.*?)</h~isu', $page, $matches);
-            $heading = $this->cleanedHeading($matches[2]);
+            $heading = $this->cleanedHeading($h[$i]);
             if ($heading === '') {
                 $empty += 1;
                 $this->headings[$i] = $tx['toc']['empty'] . ' ' . $empty;
             } else {
                 $this->headings[$i] = $heading;
             }
-            $this->mayRename[$i] = $this->mayRename($matches[2]);
+            $this->mayRename[$i] = $this->mayRename($h[$i]);
         }
     }
 
