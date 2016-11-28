@@ -1,0 +1,20 @@
+.cke_combopanel {
+    height: 170px;
+    width: 250px !important;
+}
+
+.cke_combo__styles .cke_combo_text {
+    /*width: 75px !important;*/
+}
+
+.cke_combo__format .cke_combo_text {
+    width: 75px !important;
+}
+
+.cke_combo__font .cke_combo_text {
+    /*width: 75px !important;*/
+}
+
+.cke_combo__fontsize .cke_combo_text {
+    width: 40px !important;
+}

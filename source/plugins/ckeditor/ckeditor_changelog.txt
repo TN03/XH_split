@@ -1,0 +1,24 @@
+ChangeLog CKeditor for CMSimple_XH
+
+
+Version 2.1
+
+Installation hints:
+Skins have changed - check your configuration and clear cache
+
+Changes:
+- CKEditor 4.2.1
+- Dropped compatibility support for Internet Explorer 7 and Firefox 3.6
+- Compatible with CMSimpl_XH 1.6
+- Skin "MoonoBlue" added, "Kama" removed
+- Added "Insert <pre>" plugin in "full" toolbar
+- Fixed a bug in IE where the browse server buttton
+  triggers a "Content has changed" alert
+  (thanks to Christoph (cmb), www.3-magi.net and Stefan Job)
+  This bug is fixed for IE9 in the shipped ckeditor-core too
+
+
+Version 2.0
+- update editor-core to CKEditor 4.1.1
+- added Skins: Moono, Kama and MoonoColor
+- added Plugins: Magic Line, Auto-grow, Table resizer
