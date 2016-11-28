@@ -157,7 +157,7 @@ class XH_Search
         $s = $pageIndex;
         //HI we have to add the page heading, if visible in content
         if ($cf['headings']['show']) {
-            //preg_match('/<!--XH_ml[1-9]+:(.+)-->/isU', $content, $matches);
+            //preg_match('/<!--XH_ml[1-9]:(.+)-->/isU', $content, $matches);
             //$content = $matches[1] . $content;
             $content = $h[$s] . $content;
         }

@@ -179,7 +179,7 @@ if (!$edit && $pd_current) {
         $temp = '/(<h[1-' . $cf['menu']['levels'] . '].*>).+(<\/h[1-'
             . $cf['menu']['levels'] . ']>)/isU';
         */
-        $temp = '/(<!--XH_ml[1-9]+:).+(-->)/isU'; //HI
+        $temp = '/(<!--XH_ml[1-9]:).+(-->)/isU'; //HI
         if (trim($pd_current['heading']) == '') {
             $c[$pd_s] = preg_replace($temp, '', $c[$pd_s]);
         } else {

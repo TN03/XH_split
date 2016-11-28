@@ -541,7 +541,7 @@ function content()
     $heading = '';
 
     if ($cf['headings']['show'] && $s > -1) {
-        if (preg_match('/<!--XH_ml[1-9]+:(.+)-->/isU', $c[$s], $matches)) {
+        if (preg_match('/<!--XH_ml[1-9]:(.+)-->/isU', $c[$s], $matches)) {
             $heading = $matches[1];
         } 
     }
@@ -555,13 +555,13 @@ function content()
         //return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]); //HI
         $o .= sprintf($cf['headings']['format'], $heading) 
             . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
-        return  preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $o);
+        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $o);
     } else {
         //return $o; //HI
         if ($s > -1 && ($cf['headings']['show'] || ($edit && XH_ADM))) {
             $o = sprintf($cf['headings']['format'], $h[$s]) . $o;
         }
-        return  preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $o);
+        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $o);
     }
 }
 
