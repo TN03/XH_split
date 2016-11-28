@@ -542,7 +542,7 @@ function content()
 
     if ($cf['headings']['show'] && $s > -1) {
         if (preg_match('/<!--XH_ml[1-9]:(.+)-->/isU', $c[$s], $matches)) {
-            $heading = $matches[1];
+            $heading = sprintf($cf['headings']['format'], $matches[1]);
         } 
     }
     if (!($edit && XH_ADM) && $s > -1) {
@@ -550,11 +550,10 @@ function content()
             $search = XH_hsc(stsl($_GET['search']));
             $words = explode(' ', $search);
             $c[$s] = XH_highlightSearchWords($words, $c[$s]);
-            $heading = XH_highlightSearchWords($words, $heading);
+            $heading = XH_highlightSearchWords($words, strip_tags($heading));
         }
         //return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]); //HI
-        $o .= sprintf($cf['headings']['format'], $heading) 
-            . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
+        $o .= $heading . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
         return  preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $o);
     } else {
         //return $o; //HI
