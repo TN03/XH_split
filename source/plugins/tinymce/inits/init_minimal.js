@@ -21,7 +21,7 @@
     theme_advanced_resizing : true,
 
     // %PAGEHEADERS% = h1...hx for new pages, %NAMED_PAGEHEADERS% =  1. Level pageheader=h1 ...hx, %HEADERS% = remaining hy...h6
-    theme_advanced_blockformats : "%PAGEHEADERS%,%HEADERS%,p=p,div=div",
+    theme_advanced_blockformats : "h1=h1,h2=h2,h3=h3,h4=h4,h5=h5,h6=h6,p=p,div=div",
     theme_advanced_font_sizes : "8px=8px,10px=10px,12px=12px,14px=14px,16px=16px,18px=18px,20px=20px,24px=24px,36px=36px",
 
     content_css : "%STYLESHEET%",
