@@ -924,14 +924,14 @@ function XH_readContents($language = null)
     }
     //$stop = $cf['menu']['levels'];
     //$content = preg_split('/(?=<h[1-' . $stop . '])/i', $content); //Core
-    $content = preg_split('/(?=<!--XH_ml[1-9]+:)/i', $content);
+    $content = preg_split('/(?=<!--XH_ml[1-9]:)/i', $content);
     $content[] = preg_replace('/(.*?)<\/body>.*/isu', '$1', array_pop($content));
     $contentHead = array_shift($content);
     $temp_h = array();
     foreach ($content as $page) {
         $c[] = $page;
         //preg_match('~<h([1-' . $stop . ']).*>(.*)</h~isU', $page, $temp); //Core
-        preg_match('~<!--XH_ml([1-9]+):(.*)-->~isU', $page, $temp);
+        preg_match('~<!--XH_ml([1-9]):(.*)-->~isU', $page, $temp);
         $l[] = $temp[1];
         $temp_h[] = trim(xh_rmws(strip_tags($temp[2])));
     }

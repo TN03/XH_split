@@ -855,7 +855,7 @@ function XH_contentEditor()
         $o .= tag('input type="hidden" name="level" value="' . $l[$s] . '"') //HI
             . tag('input type="hidden" name="heading" value="' . $h[$s] . '"'); //HI
         //replace split-markers
-        $c[$s] = preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $c[$s]); //HI
+        $c[$s] = preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $c[$s]); //HI
     }
     $o .= tag('input type="hidden" name="function" value="save"')
         . '<textarea name="text" id="text" class="xh-editor" style="height: '
@@ -900,7 +900,7 @@ function XH_saveContents()
         return false;
     }
     //HI $hot = '<h[1-' . $cf['menu']['levels'] . '][^>]*>'; //Core
-    $hot = '<!--XH_ml[1-9]+:';
+    $hot = '<!--XH_ml[1-9]:';
     //$hot = '<!--XH_ml[1-' . $cf['menu']['levels'] . ']-->[^>]*<h[1-6][^>]*>';
     //HI $hct = '<\/h[1-' . $cf['menu']['levels'] . ']>';
     //$hct = '<\/h[1-6]>';
@@ -947,14 +947,14 @@ function XH_saveEditorContents($text)
     $text = stsl($text);
     //clean up and inject split-markers
     if (!$cf['mode']['advanced']) {
-        $text = preg_replace('/<!--XH_ml[1-9]+:.*?-->/isu', '', $text);
+        $text = preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $text);
         $split = '<!--XH_ml' . stsl($_POST['level']) . ':' 
             . stsl($_POST['heading']) . '-->'
             . "\n";
         $text = $split . $text;
     }
     //HI $hot = '<h[1-' . $cf['menu']['levels'] . '][^>]*>'; //Core
-    $hot = '<!--XH_ml[1-9]+:';
+    $hot = '<!--XH_ml[1-9]:';
     //HI $hct = '<\/h[1-' . $cf['menu']['levels'] . ']>'; // TODO: use $1 ? //Core
     $hct = '-->';
     // TODO: this might be done before the plugins are loaded
@@ -970,7 +970,7 @@ function XH_saveEditorContents($text)
     // handle missing heading on the first page
     if ($s == 0) {
         //HI if (!preg_match('/^<h1[^>]*>.*<\/h1>/isu', $text) //Core
-        if (!preg_match('/^<!--XH_ml[1-9]+:.+-->/isu', $text)
+        if (!preg_match('/^<!--XH_ml[1-9]:.+-->/isu', $text)
             && !preg_match('/^(<p[^>]*>)?(\&nbsp;| |<br \/>)?(<\/p>)?$/isu', $text)
         ) {
             //HI $text = '<h1>' . $tx['toc']['missing'] . '</h1>' . "\n" . $text;
@@ -982,7 +982,7 @@ function XH_saveEditorContents($text)
     // insert $text to $c
     $text = preg_replace(
         //HI '/<h[1-' . $cf['menu']['levels'] . ']/i', "\x00" . '$0', $text
-        '/<!--XH_ml[1-9]+:/is', "\x00" . '$0', $text
+        '/<!--XH_ml[1-9]:/is', "\x00" . '$0', $text
     );
     $pages = explode("\x00", $text);
     
