@@ -53,15 +53,6 @@ class Pagemanager_XMLParser
     var $pageData;
 
     /**
-     * The maximum nesting level.
-     *
-     * @var int
-     *
-     * @access protected
-     */
-    var $levels;
-
-    /**
      * The current nesting level.
      *
      * @var int
@@ -119,15 +110,13 @@ class Pagemanager_XMLParser
      * Initializes a newly created object.
      *
      * @param array  $contents   Page contents.
-     * @param int    $levels     Maximum page level.
      * @param string $pdattrName Name of a page data attribute.
      *
      * @return void
      */
-    function Pagemanager_XMLParser($contents, $levels, $pdattrName)
+    function Pagemanager_XMLParser($contents, $pdattrName)
     {
         $this->contents = $contents;
-        $this->levels = $levels;
         $this->pdattrName = $pdattrName;
     }
 

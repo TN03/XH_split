@@ -96,7 +96,6 @@ class Pagemanager_Model
     {
         global $c, $h, $cf, $tx;
 
-        $stop = $cf['menu']['levels'];
         $empty = 0;
         foreach ($c as $i => $page) {
             $heading = $this->cleanedHeading($h[$i]);
@@ -176,7 +175,7 @@ class Pagemanager_Model
 
         include_once "{$pth['folder']['plugins']}pagemanager/classes/XMLParser.php";
         $parser = new Pagemanager_XMLParser(
-            $c, (int) $cf['menu']['levels'],
+            $c,
             $plugin_cf['pagemanager']['pagedata_attribute']
         );
         $parser->parse($xml);

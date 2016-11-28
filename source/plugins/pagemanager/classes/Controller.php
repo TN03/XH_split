@@ -245,7 +245,7 @@ class Pagemanager_Controller
             'okButton' => $ptx['button_ok'],
             'cancelButton' => $ptx['button_cancel'],
             'deleteButton' => $ptx['button_delete'],
-            'menuLevels' => (int) $cf['menu']['levels'],
+            'menuLevels' => 9,
             'verbose' => (bool) $pcf['verbose'],
             'menuLevelMessage' => $ptx['message_menu_level'],
             'cantRenameError' => $ptx['error_cant_rename'],
