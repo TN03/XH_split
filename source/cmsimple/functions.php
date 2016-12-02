@@ -364,7 +364,8 @@ function newsbox($heading)
 
     for ($i = 0; $i < $cl; $i++) {
         if ($h[$i] == $heading) {
-            $body = $c[$i];
+            $pattern = '/.*?<!--XH_ml[1-9]:.*?-->/isu';
+            $body = preg_replace($pattern, "", $c[$i]);
             $pattern = '/#CMSimple (.*?)#/is';
             return $edit
                 ? $body
