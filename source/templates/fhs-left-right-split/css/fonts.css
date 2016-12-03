@@ -1,0 +1,30 @@
+@charset "utf-8";
+/*** SCHRIFTEN ***/
+@font-face {
+	font-family: 'PTsans-Narrow';
+	src: url('../fonts/PTsans-Narrow/PTsans-Narrow-webfont.eot');
+	src: url('../fonts/PTsans-Narrow/PTsans-Narrow-webfont.eot?#iefix') format('embedded-opentype'),  url('../fonts/PTsans-Narrow/PTsans-Narrow-webfont.woff') format('woff'),  url('../fonts/PTsans-Narrow/PTsans-Narrow-webfont.ttf') format('truetype'),  url('../fonts/PTsans-Narrow/PTsans-Narrow-webfont.svg#PTsans-Narrow') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DroidSerif-Regular';
+	src: url('../fonts/DroidSans/DroidSerif-Regular-webfont.eot');
+	src: url('../fonts/DroidSans/DroidSerif-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/DroidSans/DroidSerif-Regular-webfont.woff') format('woff'), url('../fonts/DroidSans/DroidSerif-Regular-webfont.ttf') format('truetype'), url('../fonts/DroidSans/DroidSerif-Regular-webfont.svg#DroidSerif-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DroidSerif-Bold';
+	src: url('../fonts/DroidSans/DroidSerif-Bold-webfont.eot');
+	src: url('../fonts/DroidSans/DroidSerif-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/DroidSans/DroidSerif-Bold-webfont.woff') format('woff'), url('../fonts/DroidSans/DroidSerif-Bold-webfont.ttf') format('truetype'), url('../fonts/DroidSans/DroidSerif-Bold-webfont.svg#DroidSerif-Bold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DroidSerif-Italic';
+	src: url('../fonts/DroidSans/DroidSerif-Italic-webfont.eot');
+	src: url('../fonts/DroidSans/DroidSerif-Italic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/DroidSans/DroidSerif-Italic-webfont.woff') format('woff'), url('../fonts/DroidSans/DroidSerif-Italic-webfont.ttf') format('truetype'), url('../fonts/DroidSans/DroidSerif-Italic-webfont.svg#DroidSerif-Italic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

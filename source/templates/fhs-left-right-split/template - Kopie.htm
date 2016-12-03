@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="<?php echo $sl;?>">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="<?php echo $pth['folder']['template']?>favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?php echo $pth['folder']['template']?>favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-precomposed.png">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $pth['folder']['template']?>favicon.ico">
+<link rel="icon" type="image/x-icon" href="<?php echo $pth['folder']['template']?>favicon.ico">
+<link rel="icon" type="image/gif" href="<?php echo $pth['folder']['template']?>favicon.gif">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon.png">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon.png">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-57x57.png" sizes="57x57">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-60x60.png" sizes="60x60">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-72x72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-76x76.png" sizes="76x76">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-114x114.png" sizes="114x114">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-120x120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-128x128.png" sizes="128x128">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-144x144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-152x152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-precomposed.png">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-196x196.png" sizes="196x196">
+<?php echo head();?>
+<link rel="stylesheet" href="<?php echo $pth['folder']['template']?>css/slidebars.css">
+<link rel="stylesheet" href="<?php echo $pth['folder']['template']?>css/animsition.min.css">
+</head>
+
+<body <?php echo onload();?> class="animsition">
+<div id="header" class="sb-slide">
+<div id="banner">
+<div class="bannerBrand"><a href="./" class="logo">&nbsp;</a><!-- LOGO -->
+<p>CMSimple_XH-<span class="red">split</span> &ndash; &shy;Das&nbsp;simple&nbsp;CMS.</p><!-- SLOGAN -->
+</div>
+</div>
+</div>
+<div id="nav">
+<div id="navin" class="sb-slide">
+<div class="sb-toggle-left"><i class="white fa fa-bars fa-2x"></i></div>
+<div class="sb-toggle-right"><i class="white fa fa-info-circle fa-2x"></i></div>
+</div>
+</div>
+<div id="main" class="sb-slide"><?php echo content();?>
+<noscript>
+<style type="text/css">
+	.animsition,.animsition-overlay {
+		position:relative;
+		opacity: 1;
+		-webkit-animation-fill-mode:both;
+		animation-fill-mode:both;
+		}
+		.accordion .acctxt {
+			display: block;
+		}
+	</style>
+<p> </p>
+<hr>
+<p class="warning">Sie haben JavaScript in Ihrem Browser deaktiviert. Hier geht es zum <a href="?&sitemap">Inhaltsverzeichnis.</a>
+</noscript>
+</div>
+<div id="footer" class="sb-slide">
+<div id="footer_in">
+<p class="absatzLinieUnten"><?php echo sitemaplink();?> | <a href="?&mailform">Kontakt</a> | <a href="?Impressum">Impressum</a> | <?php echo loginlink();?></p>
+<p class="copyright">&copy; <?php echo date("Y");?> FIRMA XYZ | Powered by <a href="http://www.cmsimple-xh.org/" target="_blank">CMSimple_XH</a> | Template by <a href="http://fhseidel.de/" target="_blank">fhs</a></p>
+</div>
+</div>
+<div class="sb-slidebar sb-right sb-style-push">
+<div class="navHead info">
+<div class="sb-toggle-right info"><i class="white fa fa-close fa-2x"> </i></div>
+</div>
+<div id="newsboxes">
+<section class="news">
+<div class="newsin"><?php echo newsbox('News01');?></div>
+</section>
+<section class="news">
+<div class="newsin"><?php echo newsbox('News02');?></div>
+</section>
+</div>
+</div>
+<div class="sb-slidebar sb-left sb-style-push">
+<div class="navHead sb-toggle-left info"><i class="white fa fa-close fa-2x"></i></div>
+<div class="menu">
+<div class="menuToggle" title="open/close"><i class="fa fa-plus-square-o"> </i></div>
+<div class="menuNorm activeMenu">
+<?php echo toc();?>
+</div>
+<div class="menuOpen">
+<?php echo li($hc,1);?>
+</div>
+</div>
+<?php echo searchbox();?>
+</div>
+<a id="backTop" class="fa fa-arrow-circle-up fa-3x"> </a> 
+<script src="<?php echo $pth['folder']['template']?>js/slidebars.min.js"></script> 
+<script src="<?php echo $pth['folder']['template']?>js/jquery.backTop.min.js"></script>
+<script src="<?php echo $pth['folder']['template']?>js/animsition.min.js"></script> 
+<script src="<?php echo $pth['folder']['template']?>js/th3_accordion.min.js"></script>
+<script src="<?php echo $pth['folder']['template']?>js/menu-toggle.js"></script>
+<script>
+// slidebars
+(function($) {
+	$(document).ready(function() {
+		$.slidebars();
+	});
+}) (jQuery);
+// back to top
+	$('#backTop').backTop({
+		'position' : 200,
+		'speed' : 500,
+		'color' : 'black',
+	});
+// navbar on top
+	$(window).scroll(function(){
+		var border = 260;
+		if($(window).scrollTop() >= border){
+			$("#nav").css({
+				'position' : 'fixed',
+				'top' : '0'
+			});
+		}
+		if($(window).scrollTop() < border){
+			$('#nav').removeAttr('style');			
+		}
+	})		
+  $(document).ready(function() {
+    $('.animsition').animsition();
+  });
+</script>
+</body>
+</html>

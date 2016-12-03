@@ -1,10 +1,10 @@
 <?php
 
 $cf['security']['password']="\$P\$BHYRVbjeM5YAvnwX2AkXnyqjLhQAod1";
-$cf['security']['secret']="2ddea5d9f83749b76e089566";
+$cf['security']['secret']="9ed254a0ffe387de558ebb98";
 $cf['security']['email']="";
 $cf['security']['frame_options']="";
-$cf['site']['template']="mini1";
+$cf['site']['template']="fhs-left-right-split";
 $cf['site']['timezone']="";
 $cf['language']['default']="de";
 $cf['language']['2nd_lang_names']="cs=Čeština;da=Dansk;de=Deutsch;en=English;es=Español;fi=Suomi;fr=Français;gr=Ελληνικά;hu=Magyar;it=Italiano;nl=Nederlands;no=Norsk;pl=Polski;ru=Русский;se=Svensk;sk=Slovenčina";
