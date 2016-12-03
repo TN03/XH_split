@@ -568,6 +568,8 @@ function content()
 /**
  * Returns the submenu of a page.
  *
+ * @param string $wrap  Optional markup to wrap the heading.
+ *
  * @return string (X)HTML.
  *
  * @global int   The index of the current page.
@@ -576,7 +578,7 @@ function content()
  * @global array The localization of the core.
  * @global array The configuration of the core.
  */
-function submenu()
+function submenu($wrap = '')
 {
     global $s, $cl, $l, $tx, $cf;
 
@@ -597,10 +599,15 @@ function submenu()
             }
         }
         if (count($ta) != 0) {
-            $level = min($cf['menu']['levels'] + 1, 6);
-            return '<h' . $level . '>' . $tx['submenu']['heading']
-                . '</h' . $level . '>'
-                . li($ta, 'submenu');
+                if ($wrap == '') {
+                    $level = min($cf['menu']['levels'] + 1, 6);
+                    return '<h' . $level . '>' . $tx['submenu']['heading']
+                        . '</h' . $level . '>'
+                        . li($ta, 'submenu');
+                } else {
+                    return sprintf($wrap, $tx['submenu']['heading'])
+                        . li($ta, 'submenu');
+                }
         }
     }
 }
