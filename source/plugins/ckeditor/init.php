@@ -48,6 +48,7 @@ function ckeditor_getExternalPlugins() {
     global $pth;
     $plugins = array();
     $handle = opendir($pth['folder']['plugins'] . 'ckeditor/plugins_external/');
+    if(!$handle) { return $plugins; }
     while (false !== ($entry = readdir($handle))) {
         if (strpos($entry, '.') === false) {
             $plugins[] = $entry;

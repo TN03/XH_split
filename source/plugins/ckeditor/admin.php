@@ -42,6 +42,7 @@ function ckeditor_getSkins() {
     global $pth;
     $skins = array();
     $handle = opendir($pth['folder']['plugins'] . 'ckeditor/ckeditor/skins/');
+    if(!$handle) { return $skins; }
     while (false !== ($entry = readdir($handle))) {
         if (strpos($entry, '.') === false) {
             $skins[] = $entry;
