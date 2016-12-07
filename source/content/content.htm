@@ -2,59 +2,13 @@
 <?php
 $page_data_fields=array('url','last_edit','description','keywords','title','robots','heading','show_heading','template','published','publication_date','expires','show_last_edit','linked_to_menu','header_location','use_header_location');
 $temp_data=array(
-'url'=>'Test',
-'last_edit'=>'1480013430',
+'url'=>'Seite-1-Level-6.1',
+'last_edit'=>'1480624588',
 'description'=>'',
 'keywords'=>'',
 'title'=>'',
 'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-</head><body>
-<!--XH_ml1:Vor Seite 1-->
-<?php
-$page_data[]=array(
-'url'=>'Vor-Seite-1',
-'last_edit'=>'1480029766',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<p>hkhjskhdkjasdh</p>
-<p>Vor Seite 1</p>
-<p> </p>
-<!--XH_ml1:Seite 1-->
-<?php
-$page_data[]=array(
-'url'=>'Seite-1',
-'last_edit'=>'1479945190',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'Überschrift aus PD',
+'heading'=>'Das Template „fhs-left-right-split“',
 'show_heading'=>'1',
 'template'=>'0',
 'published'=>'1',
@@ -66,14 +20,59 @@ $page_data[]=array(
 'use_header_location'=>'0'
 );
 ?>
-<p>Text auf Seite 1</p>
-<p>ok, klappt :) - nich :( ...</p>
-<p>Ja, jetzt aber!</p>
-<!--XH_ml2:Seite 1.1-->
+</head><body>
+<!--XH_ml1:Start-->
 <?php
 $page_data[]=array(
-'url'=>'Seite-1.1',
-'last_edit'=>'1479767790',
+'url'=>'Start',
+'last_edit'=>'1481099734',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'<span style="color:#f60">Glückwunsch!</span>',
+'show_heading'=>'1',
+'template'=>'0',
+'published'=>'1',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'0',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>'0'
+);
+?>
+<p>Wenn du diesen Text sehen kannst, hast du alles richtig gemacht.<br>CMSimple_XH<span style="color: #f60;">&lt;split&gt;</span> ist fertig installiert und scheint zu funktionieren.<br>Du kannst jetzt loslegen.</p>
+<h2>Was ist zu tun?</h2>
+<ul class="ulNrml">
+<li>Ändere das Standard-Passwort (<a href="http://www.cmsimple-xh.org/wiki/doku.php/settings" target="_blank" rel="noopener noreferrer">Tipp</a>)</li>
+<li>Konfiguriere das CMS nach deinen Bedürfnissen (<a href="http://www.cmsimple-xh.org/wiki/doku.php/settings" target="_blank" rel="noopener noreferrer">Tipp</a>)</li>
+<li>Wähle dein Template</li>
+<li>Installiere Plugins nach deinen Wünschen (<a href="http://www.cmsimple-xh.org/wiki/doku.php/installation" target="_blank" rel="noopener noreferrer">Tipp</a>)</li>
+<li>Beginne deine Inhalte einzufügen</li>
+</ul>
+<h2>Wie es funktioniert</h2>
+<h3>Bisher war das so</h3>
+<p>CMSimple_XH speichert alle Inhalte einer Site in <em>einer</em> Datei. Bei der Ausgabe an den Browser wurde bisher anhand der Überschriften (h1, h2, h3 … bis zum konfigurierten maximalen Menülevel) der Inhalt in die einzelnen Seiten zerlegt. Das war gut so, hatte allerdings einige wenige, aber erhebliche Nachteile. Bei einer Seite – zum Beispiel auf Level 3 – konnte der Inhalt nur mit einer Überschrift &lt;h3&gt; beginnen. Abhängig vom verwendeten Template, konnten somit erhebliche Struktur-Probleme entstehen. Außerdem war die Anzahl der verwendbaren Überschriften-Level naturgemäß begrenzt.</p>
+<p>Manchmal passierte es auch, dass man einen formatierten Text mit einer Überschrift von irgendwoher in den Editor kopierte, der nach dem Speichern einfach „verschwand“. Der war natürlich nicht verschwunden, sondern CMSimple hat seine Arbeit getan und eine neue Seite angelegt. Das wollen wir ändern.</p>
+<h3>Und jetzt machen wir es so</h3>
+<p>Wir wollen alle sechs Überschriften zur Verfügung haben. Wir wollen, wenn nötig, jede Seite oben mit einer Überschrift erster Ordnung beginnen. Also müssen wir die Trennung der einzelnen Seiten irgendwie anders vornehmen. Wir müssen anhand eines Markers <em>splitten</em>. Was bietet sich an? Ein Kommentar-Marker scheint eine gute Lösung zu sein. Der sieht in etwa so aus:</p>
+<p class="code">&lt;!--XH_ml<span style="color: #f60;">X</span>:Meine Überschrift--&gt;</p>
+<p>Der Marker besteht aus den üblichen html-Kommentarzeichen am Anfang und am Ende. Im Inhalt kommt „XH_“ – das erklärt sich von selbst. Danach folgt das Menülevel (ml) mit der entsprechenden Zahl (<span style="color: #f60;">x</span>). Ein Doppelpunkt (:) gefolgt von der eigentlichen Überschrift im Klartext. Das war schon alles. Simpel – oder?</p>
+<p>Nun ja, es war nicht ganz so einfach, das umzusetzen. Die Seiten werden nun <em>immer nur an diesen Markern getrennt</em>. Das Navigationsmenü wird ebenfalls mithilfe dieser Marker gebildet. Nicht vergessen, das hier Beschriebene ist ein CMS-interner Vorgang. Schaut sich ein Besucher den Quellcode deiner Seiten an, wird er ganz normale html-Überschriften vorfinden – die Marker werden nicht übertragen. Das finden wir gut.</p>
+<h2>Die Folgen</h2>
+<h3>... allgemein</h3>
+<p>Mit diesem kleinen Trick haben wir dir Spielräume geschaffen. Du kannst nun auf allen Seiten alle Überschriften von h1 bis h6 beliebig oft verwenden. Auf eine korrekte html-Struktur und Semantik musst du allerdings selbst achten.</p>
+<p>Das Ganze hat aber noch einen tollen Nebeneffekt. Da du nun nicht mehr an die Überschriftenlevel (max. 6) gebunden bist, kannst du ab jetzt tief verschachtelte Menüstrukturen aufbauen. Wir haben es für sinnvoll erachtet, die maximalen Menülevel auf neun zu beschränken.</p>
+<p>Dass dir irgenwann mal wieder Text „verschwindet“ dürfte kaum noch vorkommen – hoffen wir.</p>
+<h3>... für dich</h3>
+<p>Nun, keine Panik! Die Vorteile sind oben beschrieben. Für dich ändert sich eigentlich nur wenig. Hauptunterschied zum bisherigen CMSimple_XH ist eigentlich nur, dass du dir angewöhnen solltest, die komplette Seitenverwaltung (anlegen, umbenennen usw.) im Pagemanager vorzunehmen.</p>
+<p>Natürlich haben wir auch an die Experten unter euch gedacht, die den Pagemanager meiden und lieber alles im Quelltext erledigen wollen. Klar doch – dafür gibt es einen Expertenmodus (advanced-Mode) der später noch genauer beschrieben wird.</p>
+<!--XH_ml2:Praxis, Tipps und Technisches-->
+<?php
+$page_data[]=array(
+'url'=>'Praxis%2C-Tipps-und-Technisches',
+'last_edit'=>'1481099922',
 'description'=>'',
 'keywords'=>'',
 'title'=>'',
@@ -85,149 +84,84 @@ $page_data[]=array(
 'publication_date'=>'',
 'expires'=>'',
 'show_last_edit'=>'',
-'linked_to_menu'=>'',
+'linked_to_menu'=>'1',
 'header_location'=>'',
 'use_header_location'=>''
 );
 ?>
-<!--XH_ml3:Seite 1.1.1-->
-<?php
-$page_data[]=array(
-'url'=>'Seite-1.1.1',
-'last_edit'=>'1480013333',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<p>von Seite 2</p>
-<p>ghghghghghgh</p>
-<p>von Seite 2</p>
-<!--XH_ml4:Seite 1.1.1.1-->
-<?php
-$page_data[]=array(
-'url'=>'Seite-1.1.1.1',
-'last_edit'=>'1480013333',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<!--XH_ml1:Seite 2 XYZ-->
-<?php
-$page_data[]=array(
-'url'=>'Seite-2-XYZ',
-'last_edit'=>'1479942390',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<p>222qqaaqaqaaqaqccccccccc</p>
-<p>Ich war mal auf Seite 3</p>
-<p>sasasasa</p>
-<p>sasasasa</p>
-<p>abcdefg</p>
-<!--XH_ml1:Seite 3-->
-<?php
-$page_data[]=array(
-'url'=>'Seite-3',
-'last_edit'=>'1480028920',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<p>Tralala auf Seite 3</p>
-<p>dsasddd</p>
-<!--XH_ml1:Wie es funktioniert-->
-<?php
-$page_data[]=array(
-'url'=>'Wie-es-funktioniert',
-'last_edit'=>'1480026587',
-'description'=>'',
-'keywords'=>'',
-'title'=>'',
-'robots'=>'',
-'heading'=>'',
-'show_heading'=>'',
-'template'=>'',
-'published'=>'',
-'publication_date'=>'',
-'expires'=>'',
-'show_last_edit'=>'',
-'linked_to_menu'=>'',
-'header_location'=>'',
-'use_header_location'=>''
-);
-?>
-<div>Die content.htm wird nicht mehr anhand der Seitenüberschrift, sondern mittels einem <br>"Split-Marker" (HTML-Kommentar) gesplittet.</div>
-<p>Hier in der 2. Version sind im eigentlichen Seiteninhalt die Überschriften überhaupt nicht mehr enthalten. Die Überschriften werden im "Split-Marker" zusammen mit dem Menülevel der Seite gespeichert:</p>
-<blockquote>
-<p>&lt;!--XH_ml<strong><span style="color: #ff0000;">X</span></strong>:<em>Meine Überschrift</em>--&gt;</p>
-</blockquote>
-<p>wobei <span style="color: #ff0000;"><strong>X</strong></span> für den Menülevel steht. Die darauf folgende Überschrift wird mit einem Doppelpunkt separiert.</p>
-<p>Bei der Ausgabe der Seite <em>kann</em> die Überschrift oberhalb des Seiteninhalts ausgegeben werden (konfigurierbar: <em>Einstelleungen -&gt; CMS -&gt; Headings -&gt; Show</em>).<br>Im Edit-Modus wird die Überschrift, zur besseren Orientierung, immer angezeigt.<br>Um die Seitenüberschrift einem &lt;hx&gt; - Tag zuzuordnen, ist eine weitere Konfigurationsoption enthalten: <em>Einstelleungen -&gt; CMS -&gt; Headings -&gt; Format</em>.<br>Um jede Seite mit einer &lt;h1&gt; - Überschrift zu beginnen, setzt man hier den entsprechenden Code ein:</p>
-<blockquote>
-<p>&lt;h1&gt;%s&lt;/h1&gt;</p>
-</blockquote>
-<p>wobei "xs" dem Text der Überschrift entspricht und nicht änderbar ist.</p>
-<p>Schaltet man die Ausgabe der Überschriften ab, werden die Texte lediglich für das Navigationsmenü verwendet. Den Inhalt kann man dann mit einer beliebigen Überschrift beliebigen Grades beginnen.</p>
-<p>Außerdem ist der <a href="http://cmsimpleforum.com/viewtopic.php?f=16&amp;t=11966&amp;start=30#p55555" target="_blank">von Christoph vorgeschlagene "NOPE" - Modus</a> integriert. Deaktiviert man in der Konfiguration ganz unten den "Advanced-Mode", werden alle Split-Marker aus dem Editor herausgefiltert und beim Speichern der Seiten automatisch wieder hinzugefügt. In dem Modus kann der User per Editor keine Seiten anlegen oder löschen, bzw. Inhalte verschieben. Hierzu muss der, hoffentlich bald angepasste, PageManager zur Hilfe genommen werden. <br>Im "Advanced-Mode" hat der User im HTML-Mode vollständigen Zugriff auf die Split-Marker. Die Möglichkeiten entsprechen so dem Original.</p>
+<h2>NOPE- und advanced Modus</h2>
+<p>Nachdem du das CMS istalliert und zum Laufen gebracht hast, befindet es sich im NOPE-Modus.<br>NOPE bedeutet einfach: <span style="color: #f60;">NO</span> <span style="color: #f60;">P</span>age management from the <span class="red">E</span>ditor</p>
+<p>Wir haben uns gedacht: sicher ist sicher. Im NOPE-Modus werden die Split-Marker nirgends angezeigt und sind damit vor unbeabsichtigtem Löschen oder Verändern geschützt. Das ist gut für Leute, die einfach drauflosschreiben und sich nicht um den technischen Hintergrund kümmern wollen oder können.</p>
+<p>Power-User, oder Experten, können einfach in den „advenced Mode“ umschalten. Die Split-Marker werden dann im Editor im Quellcode angezeigt und sind bearbeitbar. Den Schalter dazu findest du so:</p>
+<p>Einstellungen → CMS: → ganz unten im Abschnitt Mode: → Advanced → Haken setzen<br>(Vergiss nicht, wenn du das CMS dem Kunden oder Nachbars Kindern übergibst, den Haken wieder zu entfernen.)</p>
+<h2>Überschriften</h2>
+<p><span class="xh_label">Du hast es sicher schon bemerkt: Im Editor sind deine Überschriften nicht mehr zu bearbeiten (außer im advanced Mode, siehe oben). Sie werden nur oberhalb des Editors angezeigt. Willst du Seiten umbenennen, verschieben, löschen oder neu anlegen: Verwende bitte den Pagemanager (Menü-Punkt „Seiten“).<br></span></p>
+<p>Das CMS wird mit Grundeinstellungen für die Überschriften-Handhabung (Headings) ausgeliefert. Wie bereits erwähnt, wollen wir möglichst jeden Seiteninhalt oben mit einer Überschrift erster Ordnung (h1) beginnen. Die Grundeinstellungen sorgen dafür.</p>
+<h3>Sonderfall 1</h3>
+<p>Es gibt allerdings auch Templates, die automatisch (meistens im Seitenkopf) h1-Überschriften setzen. Damit hat jede Seite deines Projektes oben eine h1-Überschrift <em>ohne folgenden Text</em> und darauf folgt dann deine h1-Überschrift mit deinem Inhalt. Das sieht im Template oft so aus:</p>
+<p><span class="code">&lt;h1&gt;&lt;?php echo sitename()?&gt;&lt;/h1&gt;</span></p>
+<p>Okay, dann sollten deine Inhalte eben immer mit mit &lt;h2&gt; anfangen. Das machst du dort:</p>
+<p>Einstellungen → CMS: → Abschnitt: Headings → Format</p>
+<p>Als Standard (für beginnend mit h1) steht dort:</p>
+<p><span class="code">&lt;h1&gt;%s&lt;/h1&gt;<br></span></p>
+<p>Ändere es um in:</p>
+<p><span class="code">&lt;h<span style="color: #f60;">2</span>&gt;%s&lt;/h<span style="color: #f60;">2</span>&gt;</span></p>
+<p>Jetzt beginnen deine Seiteninhalte immer mit einer h2-Überschrift. Ganz schön flexibel – oder?</p>
+<h3>Sonderfall 2</h3>
+<p>Es könnte aber auch sein, dass du in deinen Inhalten oben <em>gar keine</em> Überschriften haben willst, aus welchen Gründen auch immer. Kein Problem:</p>
+<p>Einstellungen → CMS: → Abschnitt: Headings → Show</p>
+<p>Mach’ den Haken aus der Checkbox – erledigt.<br>Nun werden die obersten Überschriften deines Inhaltes, auf der Seite wie sie der Besucher zu sehen bekommt, nicht mehr angezeigt. Sie sind aber nicht weg. Wenn du im Editor arbeitest, werden sie weiterhin darüber zu sehen sein. So weißt du immer, welche Seite du gerade bearbeitest. Außerdem wird ja das Navigations-Menü ebenfalls aus genau diesen Überschriften gebildet. Also müssen sie vorhanden sein.</p>
 <h2>Technisches</h2>
-<p><strong>Die Anzahl der Menüebenen</strong> lässt sich nicht mehr in der Konfiguration einstellen. Die zuständige Variable ist als versteckt markiert und wird zur Laufzeit, entsprechend der maximal benutzten Ebenen im Inhalt, dynamisch gesetzt. Es gibt also zunächst keine Einschränkung für die Anzahl der Menüebenen. Aus Gründen der Rückwärtskompatibilität kann die Variable aber derzeit nicht entfallen. </p>
-<p>Über <strong>PageParams</strong> geänderte Überschriften werden unterstützt.</p>
-<p><strong>Suchfunktion:</strong> da der Text der Überschriften nicht mehr im eigentlichen Inhalt steht, wird er im Fall einer Suchanfrage temporär wieder dem Inhalt hinzugefügt. <br>Hierbei fiel auf, dass XH Änderungen der Überschriften per PD nicht bei der Suche berücksichtigt. Bug?<br>In dieser Demo ist das auch so, könnte aber angepasst werden.</p>
-<p>
-<!--XH_ml1:Download-->
+<p>Nun noch einige technische Informationen, um die Unterschiede zu früheren CMSimple_XH-Versionen zu verdeutlichen.</p>
+<p>Die Anzahl der maximalen Menüebenen lässt sich nicht mehr in der Konfiguration einstellen. Die zuständige Variable ist zurzeit fest auf „9“ gesetzt. Aus Gründen der Rückwärtskompatibilität kann die Variable aber derzeit nicht entfallen. </p>
+<p>Über PageParams (Editor: Reiter „Seite“) geänderte Überschriften werden unterstützt.</p>
+<p>Suchfunktion: da der Text der Überschriften nicht mehr im eigentlichen Inhalt steht, wird er im Fall einer Suchanfrage temporär wieder dem Inhalt hinzugefügt. <br>Hierbei fiel auf, dass XH Änderungen der Überschriften per PD nicht bei der Suche berücksichtigt. Bug?<br>In dieser Demo ist das auch so, könnte aber angepasst werden.</p>
+<!--XH_ml1:Menü-Struktur-->
 <?php
 $page_data[]=array(
-'url'=>'Download',
-'last_edit'=>'1480202801',
+'url'=>'Menue-Struktur',
+'last_edit'=>'1481101713',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'Menü-Struktur <span style="color:#666;font-size:.5em;">&lt;h1&gt;</span>',
+'show_heading'=>'1',
+'template'=>'0',
+'published'=>'1',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'0',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>'0'
+);
+?>
+<div class="imgR"><img src="./userfiles/images/logo-content-01.jpg" alt="Beispielbild XH&lt;split&gt;" width="735" height="413">
+<p>CMSimple_XH&lt;split&gt;</p>
+</div>
+<p>Die folgenden Seiten sollen lediglich die mögliche Menüstruktur-Tiefe verdeutlichen. Wie schon erwähnt, kannst du Seiten auf bis zu neun Ebenen anlegen. Das wird in der Praxis eher selten vorkommen, aber wer weiß …? Das Menü wird dann schließlich recht unübersichtlich und lang. Und es kann auch dauern bis du dich zu einer Seite auf Level 9 durchgeklickt hast. Ganz irre wird es, wenn du die Sitemap (den Inhalt) anschaust.</p>
+<p>Falls zu einer Seite eine Unterseite existiert, erscheint unten das altbekannte „Weiter zu:“ mit der entsprechenden Link-Liste (abhängig vom Template).</p>
+<p>Das Folgende besteht im Wesentlichen aus Blindtext – soll dir aber auch die Möglichkeiten der Seitenstruktur-Gestaltung anschaulich machen.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml2:Level 2 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-2-Seite-1',
+'last_edit'=>'1481101903',
 'description'=>'',
 'keywords'=>'',
 'title'=>'',
@@ -239,20 +173,722 @@ $page_data[]=array(
 'publication_date'=>'',
 'expires'=>'',
 'show_last_edit'=>'',
-'linked_to_menu'=>'',
+'linked_to_menu'=>'1',
 'header_location'=>'',
 'use_header_location'=>''
 );
 ?>
-<p> </p>
-<p style="text-align: center;"><a href="./?download=XH_split_demo2_2016-11-24-001.zip"><strong>XH_split_demo2_2016-11-24-001</strong></a></p>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml3:Level 3 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-3-Seite-1',
+'last_edit'=>'1481101949',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml4:Level 4 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-4-Seite-1',
+'last_edit'=>'1481101970',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml5:Level 5 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-5-Seite-1',
+'last_edit'=>'1481101987',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml6:Level 6 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-6-Seite-1',
+'last_edit'=>'1481101999',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml7:Level 7 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-7-Seite-1',
+'last_edit'=>'1481102016',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml8:Level 8 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-8-Seite-1',
+'last_edit'=>'1481102075',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml9:Level 9 Seite 1-->
+<?php
+$page_data[]=array(
+'url'=>'Level-9-Seite-1',
+'last_edit'=>'1481102087',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml9:Level 9 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-9-Seite-2',
+'last_edit'=>'1481102101',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml8:Level 8 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-8-Seite-2',
+'last_edit'=>'1481102113',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml7:Level 7 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-7-Seite-2',
+'last_edit'=>'1481102128',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml6:Level 6 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-6-Seite-2',
+'last_edit'=>'1481102141',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml5:Level 5 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-5-Seite-2',
+'last_edit'=>'1481102155',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml4:Level 4 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-4-Seite-2',
+'last_edit'=>'1481102168',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml3:Level 3 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-3-Seite-2',
+'last_edit'=>'1481102186',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml2:Level 2 Seite 2-->
+<?php
+$page_data[]=array(
+'url'=>'Level-2-Seite-2',
+'last_edit'=>'1481102205',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml1:Templates-->
+<?php
+$page_data[]=array(
+'url'=>'Templates',
+'last_edit'=>'1481104988',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Es ist schon verrückt, wie schnell die Entwicklung des Internets voranschreitet. Und noch schneller ändern sich die Nutzungsgewohnheiten und Geschmäcker der Anwender. Einen Desktop-Computer haben nur noch wenige in Gebrauch. Mobile Geräte der unterschiedlichsten Kategorien, mit winzigen bis zu riesigen Bildschirmen sind die Regel. Und aller halben Jahre werden neue Design-Trends vorausgesagt.</p>
+<p>Die Vorlagen-Gestalter (Template-Designer) haben sich über Jahre hinweg stets auf dem neuesten Stand gehalten, haben viel Zeit und Mühe investiert um teils aufwändige Templates zur Verfügung zu stellen. Das war gut so.</p>
+<p>CMSimple_XH hatte – auch das wurde schon erwähnt – einige Schwächen aufzuweisen. Eine richtige html-Struktur war beinahe unmöglich einzuhalten. Da sich Suchmaschinen mittlerweile auch dafür interessieren, wird das Thema immer wichtiger. Und damit auch neue Templates.</p>
+<p>Mit der neuen &lt;split&gt;-Variante geben wir dir (und den Vorlagengestaltern) alle Möglichkeiten an die Hand um diese Anforderungen zu erfüllen. Wenn du das willst, kannst du auf deinen Seiten eine korrekte html-Struktur schaffen – und wenn du „ganz gut bist", kannst du auch noch für Semantik sorgen. Tu’ es.</p>
+<h2><span style="font-size: .75em;">Aufruf an alle:</span><br>Wir brauchen neue Templates!</h2>
+<p>In dieser Vorab-Download-Version wird als Standard-Template eines verwendet, das versucht die oben genannten Anforderungen zu erfüllen. Zu diesem Template kannst du <a href="http://www.fhseidel.de/cmsxh/fhs-left-right-split/" target="_blank" rel="noopener noreferrer">hier</a> nähere Informationen erhalten.</p>
+<p>Als Demonstration, wie ältere Templates mit CMSimple_XH&lt;split&gt; wirken, gibt es die folgenden Seiten.</p>
+<!--XH_ml2:Template responsivehtml-->
+<?php
+$page_data[]=array(
+'url'=>'Template-responsivehtml',
+'last_edit'=>'1481102711',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'0',
+'template'=>'responsivehtml',
+'published'=>'1',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'0',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>'0'
+);
+?>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+<h2>Überschrift &lt;h2&gt;</h2>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<p>Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h3>Überschrift &lt;h3&gt;</h3>
+<p>Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h4>Überschrift &lt;h4&gt;</h4>
+<p>Es ist durchaus möglich, mehrere Überschriften eines Levels hintereinander zu haben.</p>
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque cursus, mauris nec sagittis dictum, nunc pede facilisis nisl, id mattis nunc nulla in ipsum. Donec ullamcorper, nulla eu faucibus sagittis, wisi risus ultrices metus, a ornare purus metus eget elit. Sed a leo. Suspendisse nisl tellus, volutpat vel, vehicula nec, venenatis eu, erat. Maecenas vulputate laoreet lectus. Fusce pulvinar ante non sapien. Aliquam iaculis, wisi ac tristique ornare, ante est lacinia urna, quis tempor neque dui id tortor. Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h5>Überschrift &lt;h5&gt;</h5>
+<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<h6>Überschrift &lt;h6&gt;</h6>
+<p>Vivamus posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec facilisis. Fusce imperdiet, augue at dignissim ultricies, tortor libero vehicula neque, ac malesuada lorem dolor et arcu. Quisque accumsan metus vel diam.</p>
+<!--XH_ml1:Kontakt-->
+<?php
+$page_data[]=array(
+'url'=>'Kontakt',
+'last_edit'=>'1481036175',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'0',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Wenn du dem CMS schon deine E-Mail-Adresse mitgeteilt hast, wird unterhalb dieses Textes das Standard-Kontaktformular angezeigt. Falls du es noch nachholen willst, tu’ es hier:</p>
+<p>Einstellungen → CMS: → Abschnitt: E-Mail-Formular → <span class="xh_label">E-Mail:</span></p>
+<hr>
+<div>{{{XH_mailform();}}}</div>
+<!--XH_ml1:Impressum-->
+<?php
+$page_data[]=array(
+'url'=>'Impressum',
+'last_edit'=>'1481105539',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'0',
+'template'=>'0',
+'published'=>'1',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'0',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>'0'
+);
+?>
+<p>Max Mustermann<br>Hauptstraße 1<br>98765 Oberort<br>Telefon: 0 12 34 / 1 22 333<br>E-Mail: <a href="?Kontakt">Kontaktformular</a></p>
+<p>Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
 <!--XH_ml1:News01-->
 <?php
 $page_data[]=array(
 'url'=>'News01',
-'last_edit'=>'1480202801'
+'last_edit'=>'1480625003',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'0',
+'header_location'=>'',
+'use_header_location'=>''
 );
 ?>
-<h1>News</h1>
+<h1>News 1</h1>
 <p>Here you can read the latest news.</p>
+<!--XH_ml1:News02-->
+<?php
+$page_data[]=array(
+'url'=>'News02',
+'last_edit'=>'1480624991',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'0',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<h1>News 2</h1>
+<p>Here you can read the oldest news.</p>
 </body></html>
