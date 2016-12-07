@@ -36,7 +36,7 @@
 <div id="header" class="sb-slide">
 <div id="banner">
 <div class="bannerBrand"><a href="./" class="logo">&nbsp;</a><!-- LOGO -->
-<p>CMSimple_XH-<span class="red">split</span> &ndash; &shy;Das&nbsp;simple&nbsp;CMS.</p><!-- SLOGAN -->
+<p>CMSimple_XH<span class="red lower">&lt;split&gt;</span> &ndash; &shy;Das&nbsp;simple&nbsp;CMS.</p><!-- SLOGAN -->
 </div>
 </div>
 </div>
@@ -47,6 +47,7 @@
 </div>
 </div>
 <div id="main" class="sb-slide">
+<div class="locator"><?php echo locator();?></div>
 <?php echo content();?>
 <div class="submenDiv"><?php echo submenu('<span>%s</span>');?></div>
 <noscript>
@@ -68,7 +69,7 @@
 </div>
 <div id="footer" class="sb-slide">
 <div id="footer_in">
-<p class="absatzLinieUnten"><?php echo sitemaplink();?> | <a href="?&mailform">Kontakt</a> | <a href="?Impressum">Impressum</a> | <?php echo loginlink();?></p>
+<p class="absatzLinieUnten"><?php echo sitemaplink();?> | <a href="?Kontakt">Kontakt</a> | <a href="?Impressum">Impressum</a> | <?php echo loginlink();?></p>
 <p class="copyright">&copy; <?php echo date("Y");?> FIRMA XYZ | Powered by <a href="http://www.cmsimple-xh.org/" target="_blank">CMSimple_XH</a> | Template by <a href="http://fhseidel.de/" target="_blank">fhs</a></p>
 </div>
 </div>
@@ -119,9 +120,9 @@
 	$(window).scroll(function(){
 		var border = 260;
 		if($(window).scrollTop() >= border){
-			$("#nav").css({
+			$('#nav').css({
 				'position' : 'fixed',
-				'top' : '0'
+				'top' : '0px'
 			});
 		}
 		if($(window).scrollTop() < border){
@@ -132,5 +133,23 @@
     $('.animsition').animsition();
   });
 </script>
+<?php
+if (XH_ADM) {
+echo ("
+<script>
+	$(window).scroll(function(){
+		var border = 260;
+		if($(window).scrollTop() >= border){
+			$('#nav').css({
+				'position' : 'fixed',
+				'top' : '30px'
+			});
+		}
+		if($(window).scrollTop() < border){
+			$('#nav').removeAttr('style');			
+		}
+	})		
+</script>
+");} ?>
 </body>
 </html>
