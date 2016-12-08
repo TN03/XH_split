@@ -737,7 +737,7 @@ $page_data[]=array(
 <?php
 $page_data[]=array(
 'url'=>'Templates',
-'last_edit'=>'1481104988',
+'last_edit'=>'1481212610',
 'description'=>'',
 'keywords'=>'',
 'title'=>'',
@@ -760,7 +760,42 @@ $page_data[]=array(
 <p>Mit der neuen &lt;split&gt;-Variante geben wir dir (und den Vorlagengestaltern) alle Möglichkeiten an die Hand um diese Anforderungen zu erfüllen. Wenn du das willst, kannst du auf deinen Seiten eine korrekte html-Struktur schaffen – und wenn du „ganz gut bist", kannst du auch noch für Semantik sorgen. Tu’ es.</p>
 <h2><span style="font-size: .75em;">Aufruf an alle:</span><br>Wir brauchen neue Templates!</h2>
 <p>In dieser Vorab-Download-Version wird als Standard-Template eines verwendet, das versucht die oben genannten Anforderungen zu erfüllen. Zu diesem Template kannst du <a href="http://www.fhseidel.de/cmsxh/fhs-left-right-split/" target="_blank" rel="noopener noreferrer">hier</a> nähere Informationen erhalten.</p>
-<p>Als Demonstration, wie ältere Templates mit CMSimple_XH&lt;split&gt; wirken, gibt es die folgenden Seiten.</p>
+<p>Willst du dich an einem neuen Template versuchen, lies die „Tipps für Template-Designer“ (Link unten).</p>
+<p>Als Demonstration, wie ältere Templates mit CMSimple_XH<span style="color: #f60;">&lt;split&gt;</span> wirken, gibt es ganz unten den Link „Template responsivehtml“.</p>
+<!--XH_ml2:Tipps für Template-Designer-->
+<?php
+$page_data[]=array(
+'url'=>'Tipps-fuer-Template-Designer',
+'last_edit'=>'1481212157',
+'description'=>'',
+'keywords'=>'',
+'title'=>'',
+'robots'=>'',
+'heading'=>'',
+'show_heading'=>'',
+'template'=>'',
+'published'=>'',
+'publication_date'=>'',
+'expires'=>'',
+'show_last_edit'=>'',
+'linked_to_menu'=>'1',
+'header_location'=>'',
+'use_header_location'=>''
+);
+?>
+<p>Ja, das neue CMSimple_XH<span style="color: #f60;">&lt;split&gt;</span> verursacht mehr Arbeit! Es gibt mehr Möglichkeiten – also musst du als Vorlagen-Gestalter auch für mehr Anwendungsfälle vorsorgen. Daran wirst du dich schnell gewöhnen. Und <em>so viel</em> ist es auch wieder nicht.</p>
+<h2>Überschriften</h2>
+<p>Alles ist schon beschrieben. Für dich bedeutet es aber, dass du nun für alle Überschriften von &lt;h1&gt; bis &lt;h6&gt; vorsorgen musst. Und das genügt nicht: In den Newsboxen sind ja nun auch alle sechs Überschriften möglich. Da musst du auch was tun.</p>
+<h2>Navigationsmenü</h2>
+<p>Auch hier gibt es Neuigkeiten. Es sind bei <span style="color: #f60;">&lt;split&gt;</span> bis zu neun (9!) Menü-Ebenen möglich. Ob du es mit Einrückung, Farbe oder sonstwie löst – ein bisschen mehr Arbeit ist es schon. Du musst nur dran denken und vorsorgen.</p>
+<h2>Submenu</h2>
+<p>Falls du in deinem Template das Submenü aufrufen willst, solltest du folgendes bedenken:<br>CMSimple liefert das Submenü standardmäßig mit einer Überschrift aus. Bei <span style="color: #f60;">&lt;split&gt;</span> ist es zum Beispiel:</p>
+<p><span class="code">&lt;h6&gt;weiter zu:&lt;/h6&gt;</span></p>
+<p>Das könnte natürlich wieder mal deine mühsam aufgebaute Seitenstruktur stören. Du weißt ja vorher nie, mit welcher &lt;hx&gt; der Seiten-Text gerade aufhört. Daran haben wir gedacht! Du kannst selbst bestimmen, wie die Submenü-Überschrift getaggt werden soll. Am besten sollte es so sein, dass die Struktur in jedem Fall korrekt bleibt. Bisher sah der Aufruf im Template so aus:</p>
+<p><span class="code">&lt;?php echo submenu();?&gt;</span></p>
+<p>Wie gesagt, so erhält das Submenü eine „echte“ Überschrift. Ein Vorschlag, wie der Templateaufruf unter <span style="color: #f60;">&lt;split&gt;</span> aussehen könnte:</p>
+<p><span class="code">&lt;div class="submenDiv"&gt;&lt;?php echo submenu(<span style="color: #f60;">'&lt;span&gt;%s&lt;/span&gt;'</span>);?&gt;&lt;/div&gt;</span></p>
+<p>Das ist nur ein Vorschlag. Du hast alle Freiheit, dir etwas anderes auszudenken. Wichtig ist das <span style="color: #f60;">%s</span>, das ist das altbekannte „weiter zu:“ das du in den Spracheinstellungen auch ändern kannst.</p>
 <!--XH_ml2:Template responsivehtml-->
 <?php
 $page_data[]=array(
@@ -838,7 +873,7 @@ $page_data[]=array(
 'publication_date'=>'',
 'expires'=>'',
 'show_last_edit'=>'0',
-'linked_to_menu'=>'1',
+'linked_to_menu'=>'0',
 'header_location'=>'',
 'use_header_location'=>'0'
 );
