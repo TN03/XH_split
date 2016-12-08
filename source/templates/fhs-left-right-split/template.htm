@@ -1,5 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $sl;?>">
+<?php
+// if jQuery4CMSimple is installed, include its jQuery library
+if (is_readable($pth['folder']['plugins'].'jquery/jquery.inc.php')) {
+    include_once $pth['folder']['plugins'].'jquery/jquery.inc.php';
+    include_jQuery();
+}
+?>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php echo head();?>
