@@ -69,10 +69,19 @@ if (is_readable($pth['folder']['plugins'].'jquery/jquery.inc.php')) {
 <div class="newsin"><?php echo newsbox('News02');?></div>
 </section>
 </div>
-</div></div>
+</div>
+</div>
 <div class="maincont c16 mw240">
 <?php echo editmenu();?><?php echo content();?>
 <div class="submenDiv"><?php echo submenu('<span>%s</span>');?></div>
+<div id="newsboxes2" class="row">
+<section class="news">
+<div class="newsin"><?php echo newsbox('News01');?></div>
+</section>
+<section class="news">
+<div class="newsin"><?php echo newsbox('News02');?></div>
+</section>
+</div>
 <noscript>
 <style type="text/css">
 .accordion .acctxt {
@@ -92,7 +101,7 @@ Hier geht es zur Inhaltsübersicht: <a href="?&amp;sitemap">&raquo; Sitemap</a><
 <div class="row">
 <ul>
 <li><?php echo printlink();?></li>
-<li><a href="?&amp;sitemap">Sitemap</a></li>
+<li><?php echo sitemaplink();?></li>
 <li><a href="?Kontakt">KONTAKT</a></li>
 <li><a href="?Impressum">IMPRESSUM</a></li>
 <li><?php echo loginlink();?></li>

@@ -236,6 +236,14 @@ img {
 	display: block;
 	padding: 1em;
 }
+#newsboxes2  {
+	display: none;
+}
+#newsboxes2 .news {
+	width: 45.832%;
+	margin: 0 1em 0 0;
+	float: left;
+}
 .news {
 	/* [disabled]background-color: rgba(0,0,0,.05); */
 	font-size: 0.85em;
@@ -598,6 +606,12 @@ div.maincont {
 	margin-left: 0px;
 	display: none;
 }
+#newsboxes {
+	display: none;
+}
+#newsboxes2 {
+	display: block;
+}
 .nav_horizontal, #news, .sidebar {
 	display: none;
 }
@@ -733,6 +747,13 @@ div.maincont {
 	text-transform: none;
 }
 } /* resposive 980 ende*/
+@media only screen and (max-width : 640px) {
+#newsboxes2 .news {
+	width: 100%;
+	margin: 1em 0 0;
+	float: none;
+}
+}
 @media only screen and (max-width : 480px) {
 	body {
 		font-size: .85em;
