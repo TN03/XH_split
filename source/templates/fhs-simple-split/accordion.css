@@ -1,0 +1,74 @@
+/* ########### Accordion ################### */
+
+
+
+.accordion {
+
+	margin:0 0 1px 0;
+
+	width: 100%;
+
+}
+
+.accordion h5 {
+
+	display: block;
+
+	cursor:pointer;
+
+	padding: .5em 1em;
+
+	margin: 0;
+
+	background-color: #666;
+
+	color: #fff;
+
+	font: normal 1.1em "PTsans-Narrow", sans-serif;
+
+	letter-spacing: 0.04em;
+
+	text-transform: uppercase;
+
+}
+
+.accordion h5 i, .accordion h5 em {
+
+	float: right;
+
+}
+
+.accordion .acctxt p {
+
+	margin: 0;
+
+	font-size: .975em;
+
+	-webkit-hyphens: none;
+
+	-moz-hyphens: none;
+
+	-ms-hyphens: none;
+
+	hyphens: none;
+
+}
+
+.accordion .acctxt {
+
+	display: none;
+
+	padding: 1em;
+
+	margin: 0;
+
+	background: #eaeaea;
+
+}
+
+#tinymce .accordion .acctxt {
+
+	display: block;
+
+}
+

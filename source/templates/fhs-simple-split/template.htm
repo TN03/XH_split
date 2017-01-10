@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<?php
+// if jQuery4CMSimple is installed, include its jQuery library
+if (is_readable($pth['folder']['plugins'].'jquery/jquery.inc.php')) {
+    include_once $pth['folder']['plugins'].'jquery/jquery.inc.php';
+    include_jQuery();
+}
+?>
+<html lang="<?php echo $sl;?>">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="<?php echo $pth['folder']['template']?>grid.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $pth['folder']['template']?>navi.css" rel="stylesheet" type="text/css">
+<link href="<?php echo $pth['folder']['template']?>font-awesome.min.css" rel="stylesheet" type="text/css">
+<?php echo head();?>
+<script type='text/javascript' src='<?php echo $pth['folder']['template']?>scripts/th3_accordion.js'></script>
+<script type='text/javascript' src='<?php echo $pth['folder']['template']?>scripts/script.min.js'></script>
+<link rel="shortcut icon" href="<?php echo $pth['folder']['template']?>favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?php echo $pth['folder']['template']?>favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-precomposed.png">
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo $pth['folder']['template']?>favicon.ico">
+<link rel="icon" type="image/x-icon" href="<?php echo $pth['folder']['template']?>favicon.ico">
+<link rel="icon" type="image/gif" href="<?php echo $pth['folder']['template']?>favicon.gif">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon.png">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon.png">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-57x57.png" sizes="57x57">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-60x60.png" sizes="60x60">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-72x72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-76x76.png" sizes="76x76">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-114x114.png" sizes="114x114">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-120x120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-128x128.png" sizes="128x128">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-144x144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-152x152.png" sizes="152x152">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="apple-touch-icon" href="<?php echo $pth['folder']['template']?>apple-touch-icon-precomposed.png">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-160x160.png" sizes="160x160">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="<?php echo $pth['folder']['template']?>favicon-196x196.png" sizes="196x196">
+</head>
+
+<body<?php echo onload();?>>
+<div class="row-full-width" id="header">
+<div class="row" id="image">
+<div class="bild">
+<div id="logo"><a href="./" class="logo">&nbsp;</a></div>
+<div id="logoTxt"><a href="./">&nbsp;CMSimple_XH<span class="red smaller">&lt;split&gt;</span> &ndash; &shy;Das&nbsp;simple&nbsp;CMS</a></div>
+</div>
+</div>
+<div class="burger"><i class="fa fa-bars fa-2x"></i></div>
+</div>
+<nav class="nav_horizontal">
+<div class="nav_row"> <?php echo toc();?> </div>
+</nav>
+<div class="row-full-width" id="wrapper">
+<div class="row content fullWidht fullWidhtNoLineTop">
+<div class="c24 ">
+<div class="secmenu c8 mw240 gray333">
+<div id="search1"><?php echo searchbox();?></div>
+<?php echo toc(2,9);?>
+<div id="newsboxes">
+<section class="news">
+<div class="newsin"><?php echo newsbox('News01');?></div>
+</section>
+<section class="news">
+<div class="newsin"><?php echo newsbox('News02');?></div>
+</section>
+</div>
+</div>
+</div>
+<div class="maincont c16 mw240">
+<?php echo editmenu();?><?php echo content();?>
+<div class="submenDiv"><?php echo submenu('<span>%s</span>');?></div>
+<div id="newsboxes2" class="row">
+<section class="news">
+<div class="newsin"><?php echo newsbox('News01');?></div>
+</section>
+<section class="news">
+<div class="newsin"><?php echo newsbox('News02');?></div>
+</section>
+</div>
+<noscript>
+<style type="text/css">
+.accordion .acctxt {
+    display: block;
+}
+</style>
+<p>&nbsp;</p>
+<hr>
+<p class="noScript">Sie haben JavaScript in Ihrem Browser deaktiviert.<br>
+Hier geht es zur Inhaltsübersicht: <a href="?&amp;sitemap">&raquo; Sitemap</a></p>
+</noscript>
+</div>
+</div>
+</div>
+
+<div class="row-full-width" id="footer">
+<div class="row">
+<ul>
+<li><?php echo printlink();?></li>
+<li><?php echo sitemaplink();?></li>
+<li><a href="?Kontakt">KONTAKT</a></li>
+<li><a href="?Impressum">IMPRESSUM</a></li>
+<li><?php echo loginlink();?></li>
+</ul>
+</div>
+<div class="row">
+<hr>
+<p class="copyright"><?php echo date("Y");?> FIRMA XYZ | Powered by <a href="http://www.cmsimple-xh.org/" target="_blank">CMSimple_XH</a> | Template by <a href="http://fhseidel.de/" target="_blank">fhs</a></p>
+</div>
+</div>
+<a id="backTop" title="nach oben" class="fa fa-arrow-circle-up fa-3x"> </a> 
+<script src="<?php echo $pth['folder']['template']?>scripts/jquery.backTop.min.js"></script> 
+<script>
+$(document).ready( function() {
+	$('#backTop').backTop({
+		'position' : 150,
+		'speed' : 500,
+		'color' : 'black',
+	});
+});
+</script>
+
+</body>
+</html>
