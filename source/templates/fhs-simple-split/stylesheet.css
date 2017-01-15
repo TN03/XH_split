@@ -133,6 +133,7 @@ body.print a {
 	display: inline-block;
 	float: left;
 	margin: .5em 0 0 1em;
+	text-decoration: none;
 }
 #logoTxt a {
 	color: #fff;
