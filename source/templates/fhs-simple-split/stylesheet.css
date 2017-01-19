@@ -2,7 +2,6 @@
 @import url("fonts.css");
 
 /* Allgemeines - steht im Editor->Format oben */
-
 .clear {
 	clear: both;
 }
@@ -41,18 +40,6 @@ hr {
 	border: 1px solid #ccc;
 	margin: 1em 0;
 	max-width: 100%;
-}
-.bildNeben {
-	float: left;
-	margin-top: 1em;
-	margin-right: 1em;
-}
-.thesen {
-	background: #efefef;
-	padding: 0.5em 1em;
-	margin-bottom: 1em;
-	border-radius: .5em;
-	border: 1px solid #ccc;
 }
 .satzExtra {
 	font-family: "OpenSans-RegularItalic", sans-serif;
@@ -102,6 +89,9 @@ hr {
 	font-size: 0.75em;
 	line-height: normal;
 }
+.smaller {
+	font-size: .75em;
+}
 /* Layout */
 body {
 	height: 100%;
@@ -145,8 +135,9 @@ body.print a {
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 	/* [disabled]text-transform: uppercase; */
 }
-.smaller {
-	font-size: .75em;
+.langMenu {
+	text-align: right;
+	padding: .5em 0 0 0;
 }
 .maincont {
 	-webkit-hyphens: auto;
@@ -332,21 +323,6 @@ a[target="_blank"]::after, a[href^="http:"]::after, a[href^="https:"]::after {
 	padding: 0 .25em;
 	font: 0.889em FontAwesome;
 }
-/*.maincont a[href^='?Kontakt']::after, .maincont a[href^='mailto']::after {
-	font-family: FontAwesome;
-	content:"\f003";
-	color: #999;
-	padding: 0 .25em;
-}
- a[href$='.pdf']::after {
-	font-family: FontAwesome;
-	content:"\f1c1";
-	color: #999;
-	padding: 0 .25em;
-}*/
-/*.main ul ul {
-	margin-left: 1.4em;
-}*/
 ol {
 	margin: 0;
 	padding: 0;
@@ -372,16 +348,6 @@ ol li {
 	background: rgba(255,255,255,.9);
 	/* [disabled]min-height:75%; */
 }
-.fullWidht {
-	/* [disabled]margin-top: 3px;*/
-	/* [disabled]margin-bottom: 3px;*/
-}
-.fullWidhtNoLineTop {
-	margin-top: 0px;
-}
-/*.fullWidhtNoLineTop h1 {
-	margin: 0em 0 0.9em 0;
-}*/
 .mw240 {
 	min-width: 110px;
 }
@@ -828,7 +794,6 @@ div.xh_login a {
 	background: rgba(0, 0, 0, 0.05);
 }
 #searchbox input {
-    color: #fff;
     font-family: "OpenSans-Regular", sans-serif !important;
 	font-size: .75em;
 	line-height: normal;
