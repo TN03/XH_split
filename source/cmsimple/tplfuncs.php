@@ -550,7 +550,7 @@ function content()
             $search = XH_hsc(stsl($_GET['search']));
             $words = explode(' ', $search);
             $c[$s] = XH_highlightSearchWords($words, $c[$s]);
-            $heading = XH_highlightSearchWords($words, strip_tags($heading));
+            $heading = XH_highlightSearchWords($words, $heading);
         }
         //return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]); //HI
         $o .= $heading . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
