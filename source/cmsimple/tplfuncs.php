@@ -554,13 +554,13 @@ function content()
         }
         //return $o . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]); //HI
         $o .= $heading . preg_replace('/#CMSimple (.*?)#/is', '', $c[$s]);
-        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $o);
+        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/is', '', $o);
     } else {
         //return $o; //HI
         if ($s > -1 && ($cf['headings']['show'] || ($edit && XH_ADM))) {
             $o = sprintf($cf['headings']['format'], $h[$s]) . $o;
         }
-        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/isu', '', $o);
+        return  preg_replace('/<!--XH_ml[1-9]:.*?-->/is', '', $o);
     }
 }
 
